@@ -1,5 +1,6 @@
 package leerxml;
 
+import java.awt.print.PrinterException;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -7,84 +8,33 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
 
 public class LeeXML extends javax.swing.JFrame {
 
-    private DefaultTableModel dtm;
-    private DefaultTableModel dtMaterias;
-    private String[] mirenglon;
-    private boolean primeraVez = false;
-
-    public LeeXML() {
+    public LeeXML(){
         initComponents();
-        dtm = (DefaultTableModel) tablaAlumnos.getModel();
-        dtMaterias = (DefaultTableModel) tablaMaterias.getModel();
+
         leeXMLInternet();
-    }
-
-    private void agregarenglones(String renglon[]) {
-        dtm.addRow(renglon);
-    }
-
-    private void infoMaterias(Node nodoMaterias) {
-        String[] renglonMaterias;
-        NodeList nodosMaterias = nodoMaterias.getChildNodes();
-        if (nodoMaterias.getNodeType() == Node.ELEMENT_NODE) {
-           NodeList listadoMaterias = nodoMaterias.getChildNodes();
-            for (int i = 0; i < listadoMaterias.getLength(); i++) {
-                Node unaMateria = listadoMaterias.item(i);
-                for (int j = 0; j < nodosMaterias.getLength(); j++) {
-                    
-                }
-            }
-        }
-    }
-
-    private void agregaColumnas(String nombreColumna) {
-        dtm.addColumn(nombreColumna);
-    }
-
-    private void agregaDatos(NodeList otroListado) {
-        mirenglon = new String[otroListado.getLength() - 1];
-        mirenglon = new String[otroListado.getLength()];
-
-        int contador = -1;
-        for (int j = 0; j < otroListado.getLength(); j++) {
-            if (j % 2 == 1) {
-                contador += 1;
-                if (!otroListado.item(j).getNodeName().equalsIgnoreCase("materias")) {
-                    String nombreNodo = otroListado.item(j).getNodeName();
-                    String textoNodo = otroListado.item(j).getTextContent();
-                    System.out.println(nombreNodo + ": " + textoNodo);
-
-                    if (primeraVez == false) {
-                        agregaColumnas(nombreNodo);
-                    }
-
-                    mirenglon[contador] = textoNodo;
-                }
-            } else {
-                infoMaterias(otroListado.item(j));
-            }
-        }
-        primeraVez = true;
-        agregarenglones(mirenglon);
+        JTable infoTabla = new JTable(4, 4);
+        
+        infoTabla.setVisible(true);
     }
 
     private void leeXMLInternet() {
+
         try {
+
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             // File archivo = new File("C:\\PVeI 2018\\AlumnosPequeno.xml");
-            // File archivo = new File("C:\\PVeI 2018\\AlumnosPequeno.xml");
-            File archivo = new File("AlumnoMaterias.xml");
-            //String nombreArchivo = "";
+            File archivo = new File("prueba.xml");
             Document doc = dBuilder.parse(archivo);
 
-            // boolean primeraVez =false;
-            // String[] mirenglon;
             //optional, but recommended
             //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
             doc.getDocumentElement().normalize();
@@ -106,10 +56,31 @@ public class LeeXML extends javax.swing.JFrame {
                     System.out.println("\nCurrent Element :" + nodoHijo.getNodeName());
                     if (nodoHijo.getNodeType() == Node.ELEMENT_NODE) {
                         NodeList otroListado = nodoHijo.getChildNodes();
+                        for (int j = 0; j < otroListado.getLength(); j++) {
+                            if (j % 2 == 1) {
+                                String nombreNodo = otroListado.item(j).getNodeName();
 
-                        agregaDatos(otroListado);
+                                nombreColumnas.add(nombreNodo);
 
+                                String textoNodo = otroListado.item(j).getTextContent();
+
+                                infoColumna.add(textoNodo);
+                                System.out.println(nombreNodo + ": " + textoNodo);
+                            }
+                        }
                         System.out.println("\n");
+
+                        System.out.println(nombreColumnas.size());
+                        System.out.println(infoColumna.size());
+                        for (int j = 0; j < nombreColumnas.size(); j++) {
+                            System.out.println(nombreColumnas.get(j));
+                        }
+                        for (int j = 0; j < infoColumna.size(); j++) {
+                            System.out.println(infoColumna.get(j));
+                        }
+                        
+                      //  infoRenglon = infoColumna.toArray();
+
                         // Element eElement = (Element) nodoHijo;
                         // System.out.println("Nombres : " + eElement.getAttribute("id"));
 //                            System.out.println("Nombres : " + eElement.getElementsByTagName("nombres").item(0).getTextContent());
@@ -117,7 +88,6 @@ public class LeeXML extends javax.swing.JFrame {
 //                            System.out.println("Sexo : " + eElement.getElementsByTagName("sexo").item(0).getTextContent());
 //                            System.out.println("FechaNacimiento : " + eElement.getElementsByTagName("fechaNacimiento").item(0).getTextContent());
 //                            System.out.println("Materias : " + eElement.getElementsByTagName("materias").item(0).getTextContent());
-
                     }
                 }
             }
@@ -125,6 +95,10 @@ public class LeeXML extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Excepción: " + ex.toString());
         }
     }
+
+    ArrayList<String> nombreColumnas = new ArrayList<String>();
+    ArrayList<String> infoColumna = new ArrayList<String>();
+    String[] infoRenglon;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,55 +109,17 @@ public class LeeXML extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaAlumnos = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablaMaterias = new javax.swing.JTable();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tablaAlumnos);
-
-        tablaMaterias.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tablaMaterias);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -225,9 +161,5 @@ public class LeeXML extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tablaAlumnos;
-    private javax.swing.JTable tablaMaterias;
     // End of variables declaration//GEN-END:variables
 }

@@ -145,18 +145,11 @@ System.out.println(abierto);
     private void archivoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoNuevoActionPerformed
         // TODO add your handling code here:
         String t = areaTexto.getText().replace("\n", "\r\n");
-         setTitle("Sin títutlo : Bloc de notas");
         System.out.println("texto: " + t);
         if (!t.equals("")) {
-            System.out.println("apami");
             gestionGuardar();
-            setTitle("Sin títutlo : Bloc de notas");
-            
-            ruta = null;
         } else {
-            System.out.println("mi apa");
-            archivoNuevo();
-           
+            gestionGuardar();
         }
     }//GEN-LAST:event_archivoNuevoActionPerformed
 
@@ -171,8 +164,7 @@ System.out.println(abierto);
                 areaTexto.setText("");
                 setTitle("Bloc de Notas");
             } else {
-                setTitle("Bloc de Notas");
-                ruta = null;
+                areaTexto.setText("Bloc de Notas");
             }
         }
         if (!t.equals(contenedor)) {
@@ -189,7 +181,6 @@ System.out.println(abierto);
                     fw.close();
                     areaTexto.setText("");
                     setTitle("Bloc de notas");
-                    ruta=null;
              
 
                 } catch (IOException ex) {
@@ -203,10 +194,8 @@ System.out.println(abierto);
                 //fw = new FileWriter(ruta);
                 //fw.close();
                 areaTexto.setText("");
-                
                // contenedor = "";
                 setTitle("Bloc de notas");
-                ruta=null;
                 contenedor = "";
 
             //} catch (IOException ex) {
@@ -249,6 +238,8 @@ System.out.println(abierto);
         }
 
     }
+    
+    
 
     String ruta, sCadena;
     FileWriter fw;
