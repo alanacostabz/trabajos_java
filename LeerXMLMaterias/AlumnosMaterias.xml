@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<raiz>
+	<hijo>
+		<nombres>Juan Pedro</nombres>
+		<apellidos>Guerrero Estrella</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>01/10/2000</fechaNacimiento>
+		<materias>
+			<materia>
+				<clave>0001</clave>
+				<nombre>Cálculo</nombre>
+				<calificacion>88</calificacion>
+				<creditos>10</creditos>
+			</materia>
+			<materia>
+				<clave>0002</clave>
+				<nombre>Álgebra</nombre>
+				<calificacion>94</calificacion>
+				<creditos>10</creditos>
+			</materia>			
+		</materias>
+	</hijo>
+	<hijo>
+		<nombres>Héctor Manuel</nombres>
+		<apellidos>Fimbres Bórquez</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>04/06/1985</fechaNacimiento>
+		<materias>
+			<materia>
+				<clave>6002</clave>
+				<nombre>PVeI</nombre>
+				<calificacion>99</calificacion>
+				<creditos>10</creditos>				
+			</materia>
+			<materia>
+				<clave>6003</clave>
+				<nombre>Base de Datos</nombre>
+				<calificacion>66</calificacion>
+				<creditos>8</creditos>
+			</materia>			
+		</materias>		
+	</hijo>
+</raiz>

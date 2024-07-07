@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<raiz>
+
+	<alumno>
+		<nombres>Bryan Alan</nombres>
+		<apellidos>Acosta Baez</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>25/04/1995</fechaNacimiento>
+		<materias>
+			<materia>
+				<claveMateria>0001</claveMateria>
+				<nombreMateria>Base de datos</nombreMateria>
+			</materia>
+		</materias>
+	</alumno>
+
+
+	<alumno>
+		<nombres>Bryan Alan</nombres>
+		<apellidos>Acosta Baez</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>25/04/1995</fechaNacimiento>
+		<materias>
+			<materia>
+				<claveMateria>0002</claveMateria>
+				<nombreMateria>Sistemas de información</nombreMateria>
+			</materia>
+		</materias>
+	</alumno>
+	
+</raiz>

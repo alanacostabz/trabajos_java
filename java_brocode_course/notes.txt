@@ -1,0 +1,415 @@
+JAVA FULL COURSE - CODE
+
+  - TOPICS
+    - java introduction
+    - java file compilation
+    - what is jdk?
+      - jdk download
+    - what is an ide?
+      - ide download
+    - project setup
+    - classes
+    - main method
+    - println()
+    - escape sequences
+    - comments
+    - tips & tricks
+
+
+  - WHY I NEED TO LEARN JAVA?
+    - top 3 most popular languages
+    - extremely flexible (business, web apps, android apps, games)
+    - easy to find a job as a developer (entry salary $70,474 - glassdoor)
+
+  
+  - JAVA BASICS
+    - high-level language (for humans)
+      - source code (...print("Hi mom!"), .java file extension)
+
+      - compile = transfor source code to machine code
+
+      - compiler = translates as part of the compilation process
+
+    - with java we have an intermediate step called byte code to complie our source code to format call byte code
+      - cross-platform (portable)
+      - .class file extension
+
+      - j.v.m (java virtual machine) = translates as part of the run process
+        -  manages system memory and provides a portable execution environment for Java-based applications.
+        - https://www.infoworld.com/article/3272244/what-is-the-jvm-introducing-the-java-virtual-machine.html
+
+      - WHAT IS JDK?
+        - (Java Development Kit): contains developer tools to help us code, as:
+          - JRE (Java Runtinme Env.)
+            - libraries & toolkits
+            - JVM (Java Virtual Machine)
+              - runs java programs
+
+    - low-level language (for computers)
+      - object code (machine code) 
+        - 000001 0000101 0001100
+
+  
+  - WHAT IS AN IDE?
+    - I => integrated
+    - D => Development
+    - E => environment
+    - software that help us write software
+
+
+  - VARIABLES
+    - its a placeholder for a value that behaves as the value it contains
+
+    - DATA TYPES
+                                      PRIMITIVE/
+      DATA TYPE         SIZE          REFERENCE             VALUE
+
+      boolean           1 bit         primitive          true or false
+      byte              1 byte        primitive          -128 to 127
+      short             2 bytes       primitive          -32, 768 to 32,767
+      int               4 bytes       primitive          -2 billion to 2 billion
+      long              8 bytes       primitive          -9 quintillion to 9 quintillion
+
+      float             4 bytes       primitive          fractional number up to 6 - 7 digits - ex. 3.141592f
+      double            8 bytes       primitive          fractional number up to 15 digits - ex. 3.141592653589793
+
+      char              2 bytes       primitive          single character/letter/ascii value - ex. 'f'
+      string              varies      reference          a squence of characters ex. "Hello world!"
+
+
+    - PRIMITIVE VS REFERENCE
+
+      - PRIMITIVE                               - REFERENCE
+        - 8 types (boolean, byte, etc.)           - unlimited (user defined)
+        - stores data                             - stores an address
+        - can only hold 1 value                   - could hold more than 1 value
+        - less memory                             - more memory
+        - fast                                    - slower
+
+    - HOW TO CREATE A VARIABLE
+      - int x; ---> declaration
+      - x = 123; ---> assignment
+      - int x = 123; ---> initialization
+
+  
+  EXPRESSIONS:
+    - are a combination of operands and operators
+    - expresion = operands & operators
+		  - operands = values, variables, numbers, quantity
+		  - operators = + - * / %
+
+
+  GUI
+    - graphical user interface
+
+  
+  IF STATEMENT
+    - performs a block of code if it's conditions evaluates to be true
+
+  
+  SWITCH CASE:
+    - statement that allows a variable to be tested for equality agains a list of values
+
+
+  LOGICAL OPERATORS
+    - used to connect two or more EXPRESSIONS
+      - && => (AND) both conditions must be true
+      - || => (OR) either condition must be true
+      - !  => (NOT) reverses boolean value of a condition
+
+
+  WHILE LOOP
+    - executes a block of code as long as it's condition remains true
+    - there is two types of while loops
+      - while
+      - do - while
+      - the difference is do-while executes at least once
+
+
+  FOR LOOP
+    - executes a block of code limited amount of times
+
+
+  NESTED LOOPS
+    - a loop inside of a loop
+
+  
+  ARRAYS
+    - used to store multiple values in a single variable
+
+
+  2D ARRAYS 
+    - an array of arrays
+
+
+  STRING
+    - a referece data type that can store one or more characters
+    - reference data types have access to useful methods
+
+  
+  WRAPPER CLASS
+    - provides a way to use primitive data types as reference data type
+    - primitive         wrapper
+      --------          ------
+      boolean           Boolean
+      char              Character
+      int               Integer
+      double            Double
+
+    - autoboxing
+      - the automatic conversion that the java compiler makes between the primitive
+        types and their corresponding object wrapper classes
+
+      - the reverse of autoboxing, automatic conversion of wrapper class to primitive
+
+
+  ARRAYLIST 
+    - a resizable array
+    - elements can be added and removed after compilation phase
+    - store reference data types
+
+
+  2D ARRAYLIST
+    - a dynamic list of lists
+    - you can change the size of these lists during runtime
+
+  
+  FOR-EACH
+    - taversing techinque to iterate through the elements in an array/collection
+    - less steps, more readable
+    - less flexible
+
+
+  METHODS 
+    - a block of code that is execute whenever it is called upon
+
+  
+  OVERLOADED METHODS
+    - method that share the same name but have different parameters
+    - method name + parameters = method signature
+
+  
+  PRINTF 
+    - an optional method to control, format, and display text to the console window
+    - two arguments = format string + (object/variable/value)
+    - % [flags] [precision] [width] [conversion-character]
+
+      - [conversion - character]
+        - System.out.printf("%b", myBoolean); -> boolean values
+
+      - [width]
+        - minimum number of characters to be written as output
+      
+      - [precision]
+        - sets numbers of digits of precision when outputting floating-point values
+
+      - [flags]
+        - ads an effect to output based on the flag added to formatr specifier
+        - ( - ) : left-justify
+        - ( + ) : output a plus ( + ) or minus ( - ) sign for a numeric value
+        - ( 0 ) : numeric values are zero-papped
+        - ( , ) : comma grouping separator if numbers > 1000
+
+
+    FINAL KEYWORD
+      - the final keyword is used to denote constants, it can be used with variables,
+        methods, and classes
+        
+      - once any entity (variable, method or class) is declared final, it can be
+        assigned only once
+
+
+    CONSTRUCTOR
+      - special method that is called when an object is instantiated (created)
+      - is a special method that is used to initialize objects
+      - the constructor is called when object of a class is created
+
+    
+    VARIABLE SCOPE
+      - there is two types of variable scope
+        - local
+          - declared insde a method
+          - visible only in that method
+
+        - global
+          - declared otuside a method, but within a class visible to all parts
+            of a class
+
+
+    OVERLOADED CONSTRUCTORS
+      - multiples constructors within a class with the same name 
+      - but have different parameters
+      . name + parameters = signature
+
+
+    toString()
+      - special method that all objects inherit
+      - that returns a string that "textually represents" an object
+      - can be used both implicity and explicity
+
+
+    ARRAY OF OBJECTS
+
+    OBJECT PASSING
+      - pass objects as arguments
+
+    
+    STATIC KEYWORD
+      - modifier
+      - a single copy of a variable/method is created and shared
+      - the class "owns" the static number
+
+    
+    INHERITANCE
+      - the process where one class acquieres the attributes and methods of another
+
+
+    METHOD OVERRIDING
+      - declaring a method in sub class,
+      - wich is already present in parent class
+      - done so that a child class give its own implementation
+
+    
+    SUPER KEYWORD
+      - keyword refers to the superclass (parent) of an object
+      - very similar to the "this" keyword
+
+
+    ABSTRACTION
+      - abstract classes cannot be instantiated, but they can have a subclass, is a restricted
+        class that cannot be used to create objects (to access it, it must be inherited from 
+        another class), is used to provide common implementation to all the subclasses or to
+        provide default implementation
+
+      - abstract methods are declared without an implementation, can only be used in an abstract
+        class, and it does not have a body, the body is provided by the subclass (inherited from)
+
+
+    ACCESS MODIFIERS: (public, protected, private)
+      - the access modifiers in java specifies the accessibility or scope of a field, method, 
+        constructor, or class
+      - we can change the access level of fields, constructors, methods, and class by applying  
+        the access modifier on it
+      - modifiers
+        - public    -> visiable in all classes in all packages
+        - protected -> visible to all classes in the same package or classes in other packages
+                       that are a subclass
+        - default   -> visible to all classes in the same package
+        - private   -> visible only in the same class
+
+
+    ENCAPSULATION
+      - attributes of a class will be hidden or private
+      - can be accessed only though 
+      - you should make attributes private if you don't gave the reason to make them public/protected
+
+    
+    COPY OBJECTS
+
+
+    INTERFACE
+      - a template that can be applied to a class
+      - similar to inheritance, but specifies what a class has/must do
+      - classes can apply more than one interface, inheritance is limited to 1 super class
+      - An interface in Java is a collection of abstract methods and constant
+        properties. Interfaces specify what to do but not its implementation. It will be the classes that implement these interfaces that describe the logical behavior of the methods.
+
+    
+    DIFFERENCE BETWEERN INTERFACE AND ABSTRACT CLASS
+      - an interface can be used to define a contract behavior and it can also act as a contract between two systems to interact while
+        an abstract class is mainly used to define default behavior for subclasses, it means that all child classes should have perfomed
+        the same functionality
+
+      - when to use an abstract class:
+        - an abstract class is a good choice if we are using the inheritance concept since it provides a common base class implementation
+          to derived classes
+        - an abstract class is also good if we want to declare non-public members, in an interface all methods mus be public
+        - if we want to add new methods in the future, then an abstract class is better choice, because if we add new methods to an 
+          interface, then all of the classes that already implemented that interface will have to be changed to implement the new methods
+        - if we want to creat multiple versions of our component, create an abstract class, abstract classes provide a simple and easy way 
+          to version our componentts, by updating the base class, al inheriting classes are automatically updated with the change, intfaces,
+          on the other hand, cannot be changed once created, if a new version of an interface is required we must create a whole new
+          interface
+        - abstract classes have the advantage of allowing better forward compatibility, once clients use an interface, we cannot, change it,
+          if they use and abstract class, we can still add behavior without breaking the existing code
+        - if we want to provide common, implemented functionality among all implementations of our component, use an abstract class, abstract
+          classes allow us to partially implement out class whereas interfaces contain no implementation for any members
+
+      - when to use an interface:
+        - if the functionality we are creating will be useful across a wide range of disparate objects, use and interface, abstract classes 
+          should be used primarly for objects that are closely related, whereas interfaces are best suited for providing a common
+          functionality to unrelated classes
+        - interfaces are good choice when we think that the API will not change for a while
+        - interfaces are also good when we want to have something similar to multiple inheritances since we can implement multiple interfaces
+        - if we are designing small, concise bits of functionality, use interfaces, if we are designing large functional units, use abstract
+          class
+
+
+    POLYMORPHISM
+      - greek word for poly-"many", morph-"form"
+      - the ability of an object to identify as more than one type
+
+    
+    DYNAMIC POLYMORPHISM
+      - polymorphism -> many shapes/forms
+      - dynamic      -> after compilation (during runtime)
+      - ex. A corvette is a: corvette, and a car, and a vehicle, and an object
+
+
+    EXCEPTION
+      - an event that occurs during the execution of a program that disrupts the normal flow of instructions
+
+
+    FILE CLASS  
+      - an abstract representation of file and directory pathnames
+
+    
+    FILEREADER
+      - read the contents of a file as a stream of characters, one by one read() returns an int value
+        wich contains the byte value when read() returns -1, there is no more data to read
+
+    JAVA AUDIO
+    
+    GUI
+      - Graphical User Interface
+
+      - Java Swing
+        - Java Swing tutorial is a part of Java Foundation Classes (JFC) that is used to create window-based
+          applications. It is built on the top of AWT (Abstract Windowing Toolkit) API and entirely written in java.
+
+      - JFrame:
+        - a GUI windows to add components to
+
+      - JLabel
+        - a GUI display area for a string of text, an image, or both
+
+      - JPanel
+        - a GUI component that functions as a container to hold other components
+
+      - JButton
+        - a button that performs an action when clicked on
+
+      - BorderLayout
+        - layout manager: defines the natural layout for components within a container
+        - 3 common managers
+        - BorderLayout: a BorderLayout places components in five areas: NORT, SOUTH,
+          WEST, EAST, CENTER, all extra space is places in the center area
+
+      - FlowLayout
+        - layout manager: defines the natural layout for components within a container
+        - FlowLayout: places components in a row, sized a ther preferred size, if 
+          the horizontal space in the container is too small the FlowLayout class
+          uses the available row
+
+      - GridLayout
+        - layout manager: defines the natural layout for components within a container
+        - GridLayout: places components in a grid of cells, each component takes all
+          the available spaces its cell and each cell is the same size 
+      
+    CONCEPTS
+      
+      PACKAGES
+        - A package in Java is used to group related classes. Think of it as a folder in a file directory. We
+          use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories:
+            - Built-in Packages (packages from the Java API)
+            - User-defined Packages (create your own packages)

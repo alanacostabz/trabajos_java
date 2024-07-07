@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Alumnos>
+	<Alumno>
+		<nombres>Bryan Alan</nombres>
+		<apellidos>Acosta Baez</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>25/04/1995</fechaNacimiento>
+	</Alumno>
+</Alumnos>

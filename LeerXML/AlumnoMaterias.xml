@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<raiz>
+
+	<alumno>
+		<nombres>Bryan Alan</nombres>
+		<apellidos>Acosta Baez</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>25/04/1995</fechaNacimiento>
+		<materias>
+			<materia>
+				<claveMateria>0001</claveMateria>
+				<nombreMateria>Base de datos</nombreMateria>
+				<calificacion>94</calificacion>
+				<creditos>10</creditos>
+			</materia>
+		</materias>
+	</alumno>
+
+
+	<alumno>
+		<nombres>Cristiano Ronaldo</nombres>
+		<apellidos>Dos Santos Aveiro</apellidos>
+		<sexo>Hombre</sexo>
+		<fechaNacimiento>25/04/1985</fechaNacimiento>
+		<materias>
+			<materia>
+				<claveMateria>0002</claveMateria>
+				<nombreMateria>Sistemas de información</nombreMateria>
+				<calificacion>88</calificacion>
+				<creditos>8</creditos>
+			</materia>
+		</materias>
+	</alumno>
+	
+</raiz>
